@@ -6,6 +6,7 @@ import 'lodash';
 declare var _: any;
 import { defer, timer, merge, generate, throwError } from 'rxjs';
 import { switchMap, scan, takeWhile, mapTo } from 'rxjs/operators';
+import { tap, mergeMap, concatMap, exhaustMap, retry} from 'rxjs/operators';
 
 generate (
    2,
@@ -140,5 +141,42 @@ export class AppComponent implements OnInit {
          error: val => console.log(`Error: ${val}`)
       });
       
+      const fakeRequest$ = of().pipe(
+         tap(_ => console.log('fakeRequest')),
+         throwError
+      );
+
+      const iWillContinueListening$ = fromEvent(
+         document.getElementById('continued') as HTMLElement, 'click'
+      ).pipe(
+         switchMap(_ => fakeRequest$.pipe(catchError(_ => of('keep on clicking!!!'))))
+      );
+
+      const iWillStopListening$ = fromEvent(
+         document.getElementById('stopped') as HTMLElement, 'click'
+      ). pipe(
+         switchMap(_ => fakeRequest$),
+         catchError(_ => of ('no more requests!!!'))
+      );
+
+      iWillContinueListening$.subscribe(console.log);
+      iWillStopListening$.subscribe(console.log);
+      
+      const inter = interval(1000);
+      const examp = inter.pipe(
+         mergeMap(val => {
+            if(val > 5) {
+               return throwError('Error!');
+            }
+            return of (val);
+         }),
+         retry(2)
+      ) ;
+
+      const sub = examp.subscribe({
+         next: val => console.log(val),
+         error: val => console.log(`${val}: Retried 2 times then quit!`)
+      });
+
    } 
 }
