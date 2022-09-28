@@ -1,0 +1,106 @@
+<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu">Above</button>
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item>Selection 1</button>
+  <button mat-menu-item>Selection 2</button>
+  <button mat-menu-item>Selection 3</button>
+  <button mat-menu-item>Selection 4</button>
+</mat-menu>
+
+
+<button mat-button [matMenuTriggerFor]="afterMenu">After</button>
+<mat-menu #afterMenu="matMenu" xPosition="after">
+  <button mat-menu-item>After Position 001</button>
+  <button mat-menu-item>After Position 002</button>
+  <button mat-menu-item>After Position 003</button>
+</mat-menu>
+
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Cat</mat-card-title>
+        <mat-card-subtitle>Cat Monila</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://images.app.goo.gl/a5F3wYseBts4Zocp8"
+    alt="Photo of a Cat Monila">
+    <mat-card-content>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus obcaecati quaerat quae distinctio vero deleniti amet debitis sit consequuntur eos dolores perferendis facilis incidunt harum rerum veritatis id, inventore necessitatibus.
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>Share</button>
+    </mat-card-actions>
+</mat-card>
+
+<section class="example-section">
+    <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+    <mat-checkbox class="example-margin" [disabled]>Disabled</mat-checkbox>
+</section>
+
+<section class="example-section">
+    <span class="example-list-section">
+        <mat-checkbox class="example-margin"
+                        [checked]="allComplete"
+                        [color]="task.color"
+                        [indeterminate]="someCompleted()"
+                        (change)="setAll($event.checked)">
+                    {{task.name}}
+                </mat-checkbox>
+    </span>
+    <span class="example-list-section">
+        <ul>
+            <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [(ngModel)]="subtask.completed"
+                [color]="subtask.color"
+                (ngModelChange)="updateAllComplete()">
+                    {{subtask.name}}
+                </mat-checkbox>
+            </li>
+        </ul>
+    </span>
+</section>
+
+<!-- ChipList -->
+<mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>Favorite Fruits</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip
+        *ngFor="let fruit of fruits"
+        (removed)="remove(fruit)">
+        {{fruit}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="New fruit..."
+        #fruitInput
+        [formControl]="fruitCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+  
