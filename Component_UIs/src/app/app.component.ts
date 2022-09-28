@@ -10,6 +10,7 @@ import { MatCalendar } from '@angular/material/datepicker';
 import {DateAdapter, MAT_DATE_FORMATS, MatDateFormats} from '@angular/material/core';
 import {Subject} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MatAccordion } from '@angular/material/expansion';
 
 export interface Task {
     name: String;
@@ -107,4 +108,6 @@ export class AppComponent {
 
     return this.allFruits.filter(fruit => fruit.toLocaleLowerCase().includes(filterValue));
   }
+
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
 }
