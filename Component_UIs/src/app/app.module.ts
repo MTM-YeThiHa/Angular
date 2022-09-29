@@ -18,11 +18,33 @@ import { formatDate } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FormDataTestComponent } from './components/form-data-test/form-data-test.component';
+import {MatIconModule} from '@angular/material/icon';
+import { InputTestComponent } from './components/input-test/input-test.component';
+import {MatInputModule} from '@angular/material/input';
+import { ListTestComponent } from './components/list-test/list-test.component';
+import {MatListModule} from '@angular/material/list';
+import { SelectTestComponent } from './components/select-test/select-test.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSortModule} from '@angular/material/sort';
+import { SlideTestComponent } from './components/slide-test/slide-test.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { StepperComponent } from './components/stepper/stepper.component';
+import {MatTableModule} from '@angular/material/table';
+import { TableTestComponent } from './components/table-test/table-test.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TreeTestComponent } from './components/tree-test/tree-test.component';
+import {MatTreeModule} from '@angular/material/tree';
+
 
 
  
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FormDataTestComponent, InputTestComponent, ListTestComponent, SelectTestComponent, SlideTestComponent, StepperComponent, TableTestComponent, TreeTestComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -39,7 +61,19 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatTreeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
