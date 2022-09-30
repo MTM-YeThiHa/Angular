@@ -220,7 +220,8 @@ td, th {
 }
 
 /* Tree with checkboxes */
-.mat-form-field {
-  margin-right: 4px;
+.example-tree-progress-bar {
+  margin-left: 30px;
 }
+
 
