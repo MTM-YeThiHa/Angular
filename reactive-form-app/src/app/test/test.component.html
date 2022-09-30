@@ -1,0 +1,50 @@
+<div>
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+        <input type="text" name="userName" placeholder="userName" 
+            formControlName="userName">
+            <br/>
+            <br/>
+            <input type="submit" value="Click here">
+    </form>
+</div>
+<p>Textbox result is: {{userName}}</p>
+
+<div>
+    <h2>
+        Required Field validation
+    </h2>
+    <form [formGroup]="requiredForm" novalidate>
+        <div class="form-group">
+            <label class="center-block">Name:
+                <input class="form-control" formControlName="name">
+            </label>
+        </div>
+        <div *ngIf="requiredForm.controls['name'].invalid && requiredForm.controls['name'].touched" class="alert alert-danger">
+            <div *ngIf="requiredForm.controls['name'].errors?.['required']">
+                Name is required.
+            </div>
+        </div>
+    </form>
+    <p>Form value: {{ requiredForm.value | json }}</p>
+    <p>Form status: {{ requiredForm.status | json }}</p>
+</div>
+
+<div>
+    <h2>
+        Pattern validation
+    </h2>
+    <form [formGroup]="requiredForm" novalidate>
+        <div class="form-group">
+            <label class="center-block">Email: 
+                <input class="form-control" formControlName="email">
+            </label>
+        </div>
+        <div *ngIf="requiredForm.controls['email'].invalid && requiredForm.controls['email'].touched" class="alert alert-danger">
+            <div *ngIf="requiredForm.controls['email'].errors?.['required']">
+                Email is required.
+            </div>
+        </div>
+    </form>
+    <p>Form value: {{ requiredForm.value | json }}</p>
+    <p>Form status: {{ requiredForm.status | json }}</p>
+</div>
