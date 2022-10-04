@@ -27,6 +27,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           db.run(insert, ['Pizza', 12, 'Food', 'Mcdonald', '2020-05-29 09:22', '2020-05-29 09:22'])
           db.run(insert, ['Pizza', 15, 'Food', 'KFC', '2020-06-06 16:18', '2020-06-06 16:18'])
           db.run(insert, ['Pizza', 14, 'Food', 'Mcdonald', '2020-06-01 18:14', '2020-05-01 18:14'])
+          db.run(insert, ['Pizza', 7, 'Food', 'KFC', '2020-06-07 15:00', '2020-06-07 15:00'])
         }
       }
     );
