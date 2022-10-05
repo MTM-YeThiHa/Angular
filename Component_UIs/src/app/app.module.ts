@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { AppRoutingModule } from './app-routing.module';
+import {MatBadgeModule} from '@angular/material/badge';
 import {MaterialExampleModule} from './material.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -39,15 +40,19 @@ import { TableTestComponent } from './components/table-test/table-test.component
 import {MatTabsModule} from '@angular/material/tabs';
 import { TreeTestComponent } from './components/tree-test/tree-test.component';
 import {MatTreeModule} from '@angular/material/tree';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
+import { BadgeTestComponent } from './components/badge-test/badge-test.component';
 
 
 
  
 @NgModule({
-  declarations: [AppComponent, FormDataTestComponent, InputTestComponent, ListTestComponent, SelectTestComponent, SlideTestComponent, StepperComponent, TableTestComponent, TreeTestComponent],
+  declarations: [AppComponent, FormDataTestComponent, InputTestComponent, ListTestComponent, SelectTestComponent, SlideTestComponent, StepperComponent, TableTestComponent, TreeTestComponent, BottomSheetComponent, BadgeTestComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    AppRoutingModule,
+    MatBadgeModule,
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
