@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2 class="mb-3 text-center">Angular 14 Server Side Pagination Example</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr 
+        *ngFor="let student of Students | paginate : { 
+            itemsPerPage: 6,
+            currentPage: pagination,
+            totalItems: allStudents
+        }">
+        <td scope="row">{{ student.id }}</td>
+        <td>{{student.first_name}}</td>
+        <td>{{student.last_name}}</td>
+        <td>{{student.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="renderPage($event)"></pagination-controls>
+  </div>
+</div>
