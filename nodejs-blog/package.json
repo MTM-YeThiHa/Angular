@@ -1,0 +1,34 @@
+{
+  "name": "nodejs-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dompurify": "^2.4.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "init": "^0.1.2",
+    "jsdom": "^20.0.1",
+    "lowdb": "^3.0.0",
+    "marked": "^4.1.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0",
+    "nanoid": "^4.0.0",
+    "slugify": "^1.6.5",
+    "startbootstrap-clean-blog": "^6.0.8",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
