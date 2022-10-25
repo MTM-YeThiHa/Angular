@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +14,20 @@ export class AuthGuard implements CanActivate {
       const url: string = state.url;
     return this.checkLogin(url);
   }
-  checkLogin(url: string): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    if (this.authService.loggedInStatus) { return true; }
-    // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
-
-    //Navigate to the login page with extras
-    this.router.navigate(['/login']);
-    return false;
-  }
   
   constructor (private authService: AuthService, private router: Router) { }
+
+  checkLogin(url: string): any {
+    let val: any = localStorage.getItem('isUserLoggedIn');
+
+    if(val == 'true') {
+      if(url == "/login") {
+        this.router.parseUrl('/home');
+      } else {
+        return true;
+      }
+    } else {
+      return this.router.parseUrl('/login');
+    }
+  }
 }

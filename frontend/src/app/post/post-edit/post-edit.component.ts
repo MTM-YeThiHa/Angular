@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PostService } from '../../post.service';
+import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { CategoryService } from '../../category.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { Category } from './../../category/category';
 
 /** Error when invalid control is dirty, touched, or submitted. */

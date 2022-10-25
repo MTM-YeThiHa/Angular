@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from './category/category';
-import { HomeService } from './home.service';
-import { AuthService } from './auth.service';
+import { HomeService } from './services/home.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   title = 'client';
   categories: Category[] = [];
   loginStatus = false;
+  isUserLoggedIn = false;
 
   constructor(private api: HomeService, private authService: AuthService, private router: Router) { }
 
