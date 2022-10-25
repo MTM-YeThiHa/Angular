@@ -1,13 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import { Validator } from 'node-input-validator';
 import bcrypt from 'bcrypt';
-import moment from 'moment';
-import { deleteFile } from "../utils/utils";
 import { UserCreate } from '../interfaces/user';
 import User from '../models/user.model';
 import { constData } from '../const/const';
-import { ValidatorsImpl } from 'express-validator/src/chain';
 // import { logger } from "../logger/logger";
 
 export const getUserService = async (
@@ -69,7 +65,7 @@ export const createUserService = async (
     const userTdo: UserCreate = {
         fullName: req.body.fullName,
         email: req.body.email,
-        password: await bcrypt.hash(req.bod.password,12),
+        password: await bcrypt.hash(req.body.password,12),
         created_user_id: req.body.created_user_id,
     }
     const user = new User(userTdo);

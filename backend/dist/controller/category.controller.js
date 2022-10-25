@@ -45,3 +45,4 @@ const getMovieService = (_req, res, next) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.getMovieService = getMovieService;
+//# sourceMappingURL=category.controller.js.map

@@ -8,39 +8,36 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
-const nodemailer_1 = __importDefault(require("nodemailer"));
+const nodemailer_1 = require("nodemailer");
+/**
+ * Send Email
+ * @param email
+ * @param subject
+ * @param text
+ */
 const sendEmail = (email, subject, text) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const transporter = nodemailer_1.default.createTransport({
-            host: 'smtp.gmail.com',
-            service: 'gmail',
-            port: 465,
+        const transporter = (0, nodemailer_1.createTransport)({
+            host: process.env.HOST,
+            service: process.env.SERVICE,
+            port: 587,
             secure: true,
             auth: {
-                user: "scm.yethiha@gmail.com",
-                pass: 'gzqyfvybcvzmxios',
+                user: process.env.USER,
+                pass: process.env.PASS,
             },
         });
         yield transporter.sendMail({
-            from: "scm.yethiha@gmail.com",
+            from: process.env.USER,
             to: email,
             subject: subject,
             text: text,
         });
-        console.log("email sent successfully");
     }
     catch (error) {
-        console.log(error, "email not sent");
     }
 });
 exports.sendEmail = sendEmail;
-// const { text } = require("body-parser");
-// const nodemailer = require("nodemailer");
-// const sendEmail = async (email, subject, text) => {
-// };
-// module.exports = sendEmail;
+//# sourceMappingURL=sendEmail.js.map

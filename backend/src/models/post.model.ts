@@ -1,7 +1,10 @@
-import { binary } from "joi";
 import mongoose, { model, Schema } from "mongoose";
 
 const postSchema = new Schema ({
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
+    },
     id: {
         type:String,
         required: true
@@ -27,7 +30,7 @@ const postSchema = new Schema ({
         required: true
     },
     postImgUrl: {
-        type: binary,
+        type: String,
         required: true
     },
     created_user_id: {

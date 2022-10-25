@@ -35,3 +35,4 @@ const changePassword = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     (0, user_service_1.passwordChangeService)(req, res, next);
 });
 exports.changePassword = changePassword;
+//# sourceMappingURL=user.controller.js.map

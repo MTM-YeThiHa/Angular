@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.passwordChangeService = exports.deleteUserService = exports.updateUserService = exports.findUserService = exports.createUserService = exports.getUserService = void 0;
 const express_validator_1 = require("express-validator");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const utils_1 = require("../utils/utils");
 const user_model_1 = __importDefault(require("../models/user.model"));
 const const_1 = require("../const/const");
 // import { logger } from "../logger/logger";
@@ -70,7 +69,7 @@ const createUserService = (req, res, next) => __awaiter(void 0, void 0, void 0, 
         const userTdo = {
             fullName: req.body.fullName,
             email: req.body.email,
-            password: yield bcrypt_1.default.hash(req.bod.password, 12),
+            password: yield bcrypt_1.default.hash(req.body.password, 12),
             created_user_id: req.body.created_user_id,
         };
         const user = new user_model_1.default(userTdo);
@@ -126,7 +125,7 @@ const updateUserService = (req, res, next) => __awaiter(void 0, void 0, void 0, 
         if (((_d = (_c = req.files) === null || _c === void 0 ? void 0 : _c.profile) === null || _d === void 0 ? void 0 : _d.length) > 0) {
             profile = req.files.profile[0].path.replace("\\", "/");
             if (user.profile && user.profile != profile) {
-                (0, utils_1.deleteFile)(user.profile);
+                deleteFile(user.profile);
             }
             if (profile) {
                 user.profile = profile;
@@ -207,3 +206,4 @@ const passwordChangeService = (req, res, next) => __awaiter(void 0, void 0, void
     }
 });
 exports.passwordChangeService = passwordChangeService;
+//# sourceMappingURL=user.service.js.map

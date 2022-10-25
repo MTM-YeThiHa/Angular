@@ -19,8 +19,8 @@ const bcrypt_2 = __importDefault(require("bcrypt"));
 const moment_1 = __importDefault(require("moment"));
 const crypto_1 = __importDefault(require("crypto"));
 const user_model_1 = __importDefault(require("../models/user.model"));
-const password_reset_1 = __importDefault(require("../models/password.reset"));
 const sendEmail_1 = require("../utils/sendEmail");
+const password_reset_1 = __importDefault(require("../models/password.reset"));
 const logger_1 = require("../logger/logger");
 const loginService = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     user_model_1.default.findOne({ email: req.body.email }).then((user) => __awaiter(void 0, void 0, void 0, function* () {
@@ -134,3 +134,4 @@ const resetPasswordService = (req, res) => __awaiter(void 0, void 0, void 0, fun
     }
 });
 exports.resetPasswordService = resetPasswordService;
+//# sourceMappingURL=auth.service.js.map

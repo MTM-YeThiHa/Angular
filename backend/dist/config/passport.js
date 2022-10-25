@@ -10,7 +10,7 @@ var JwtStrategy = passport_jwt_1.default.Strategy;
 var ExtractJwt = passport_jwt_1.default.ExtractJwt;
 passport_1.default.use(new JwtStrategy({
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'secrect'
+    secretOrKey: 'secret'
 }, function (jwtPayload, cb) {
     return user_model_1.default.findOne({ id: jwtPayload.id }, function (err, user) {
         if (err) {
@@ -24,3 +24,4 @@ passport_1.default.use(new JwtStrategy({
         }
     });
 }));
+//# sourceMappingURL=passport.js.map

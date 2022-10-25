@@ -46,3 +46,4 @@ exports.default = (0, mongoose_1.model)("Category", categorySchema);
 //   updated: { type: Date, default: Date.now },
 // });
 // module.exports = mongoose.model('Category', CategorySchema);
+//# sourceMappingURL=category.model.js.map

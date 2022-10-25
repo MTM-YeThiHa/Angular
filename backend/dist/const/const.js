@@ -4,3 +4,4 @@ exports.constData = void 0;
 exports.constData = {
     userType: 'User || Admin',
 };
+//# sourceMappingURL=const.js.map

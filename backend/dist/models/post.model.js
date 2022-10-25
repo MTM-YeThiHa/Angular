@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const joi_1 = require("joi");
 const mongoose_1 = require("mongoose");
 const postSchema = new mongoose_1.Schema({
+    category: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: 'Category'
+    },
     id: {
         type: String,
         required: true
@@ -28,7 +31,7 @@ const postSchema = new mongoose_1.Schema({
         required: true
     },
     postImgUrl: {
-        type: joi_1.binary,
+        type: String,
         required: true
     },
     created_user_id: {
@@ -55,3 +58,4 @@ exports.default = (0, mongoose_1.model)("Post", postSchema);
 //     updated: { type: Date, default: Date.now },
 // });
 // module.exports = mongoose.model('Post', PostSchema);
+//# sourceMappingURL=post.model.js.map

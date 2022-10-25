@@ -5,9 +5,8 @@ import bcrypt from 'bcrypt';
 import moment from "moment";
 import crypto from 'crypto';
 import User from '../models/user.model';
+import { sendEmail } from "../utils/sendEmail";
 import passwordReset from "../models/password.reset";
-import { sendEmail } from '../utils/sendEmail';
-import session from "express-session";
 import { logger } from "../logger/logger";
 
 const loginService = async (req: Request, res: Response) => {

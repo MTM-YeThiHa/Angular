@@ -32,3 +32,4 @@ const resetPassword = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     (0, auth_service_2.resetPasswordService)(req, res);
 });
 exports.resetPassword = resetPassword;
+//# sourceMappingURL=auth.controller.js.map

@@ -14,3 +14,4 @@ const passwordResetSchema = new mongoose_1.Schema({
     timestamps: true
 });
 exports.default = (0, mongoose_1.model)("PasswordReset", passwordResetSchema);
+//# sourceMappingURL=password.reset.js.map
